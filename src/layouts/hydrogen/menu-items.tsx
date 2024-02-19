@@ -22,7 +22,7 @@ export const menuItems = [
   },
   {
     name: "Alarm",
-    href: routes.financial.dashboard,
+    href: routes.alarm.dashboard,
     icon: <PiWarning />,
     badge: "New",
   },
