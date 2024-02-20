@@ -17,7 +17,7 @@ export const menuItems = [
   },
   {
     name: "Ticket",
-    href: routes.eCommerce.dashboard,
+    href: routes.tables.stickyHeader,
     icon: <PiTicket />,
   },
   {
