@@ -34,7 +34,7 @@ export const menuItems = [
   },
   {
     name: "User",
-    href: routes.logistics.dashboard,
+    href: routes.invoice.home,
     icon: <PiUser />,
   },
 ];
