@@ -1,8 +1,10 @@
 import React from "react";
+import { Title } from "rizzui";
 
 export default function GrafanaDashboard() {
   return (
     <div>
+      <Title className="sticky top-0">Alarm Monitoring</Title>
       <iframe
         title="Grafana Dashboard"
         width="100%"

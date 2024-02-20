@@ -11,13 +11,13 @@ import {
 export const menuItems = [
   {
     name: "Dashboard",
-    href: routes.eCommerce.dashboard,
+    href: routes.support.dashboard,
     icon: <PiChartBarDuotone />,
     badge: "",
   },
   {
     name: "Ticket",
-    href: routes.support.dashboard,
+    href: routes.eCommerce.dashboard,
     icon: <PiTicket />,
   },
   {

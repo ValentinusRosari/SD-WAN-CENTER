@@ -1,18 +1,20 @@
-import StatCards from '@/app/shared/support/dashboard/stat-cards';
-import ProblemTypes from '@/app/shared/support/dashboard/problem-types';
-import TicketActivity from '@/app/shared/support/dashboard/ticket-activity';
-import CustomerWithMostTickets from '@/app/shared/support/dashboard/customer-with-most-tickets';
-import ResponseRate from '@/app/shared/support/dashboard/response-rate';
-import EmployeesActivity from '@/app/shared/support/dashboard/employees-activity';
-import TicketsTable from '@/app/shared/support/dashboard/tickets';
-import CustomerType from '@/app/shared/support/dashboard/customer-type';
-import SatisfactionRate from '@/app/shared/support/dashboard/satisfaction-rate';
-import CustomerTimezone from '@/app/shared/support/dashboard/customer-timezone';
+import MainDashboardTitle from "@/app/shared/support/dashboard/main-dashborad-title";
+import StatCards from "@/app/shared/support/dashboard/stat-cards";
+import ProblemTypes from "@/app/shared/support/dashboard/problem-types";
+import TicketActivity from "@/app/shared/support/dashboard/ticket-activity";
+import CustomerWithMostTickets from "@/app/shared/support/dashboard/customer-with-most-tickets";
+import ResponseRate from "@/app/shared/support/dashboard/response-rate";
+import EmployeesActivity from "@/app/shared/support/dashboard/employees-activity";
+import TicketsTable from "@/app/shared/support/dashboard/tickets";
+import CustomerType from "@/app/shared/support/dashboard/customer-type";
+import SatisfactionRate from "@/app/shared/support/dashboard/satisfaction-rate";
+import CustomerTimezone from "@/app/shared/support/dashboard/customer-timezone";
 
 export default function SupportDashboard() {
   return (
     <div className="@container">
       <div className="grid grid-cols-12 gap-6 3xl:gap-8">
+        <MainDashboardTitle />
         <StatCards className="col-span-full @2xl:grid-cols-2 @6xl:grid-cols-4" />
 
         <TicketActivity className="col-span-full" />

@@ -4,6 +4,7 @@ import NotificationDropdown from "@/layouts/notification-dropdown";
 import ProfileMenu from "@/layouts/profile-menu";
 import RingBellSolidIcon from "@/components/icons/ring-bell-solid";
 import ChatSolidIcon from "@/components/icons/chat-solid";
+import SearchWidget from "@/components/search/search";
 
 export default function HeaderMenuRight() {
   return (
