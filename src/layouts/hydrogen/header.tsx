@@ -6,7 +6,6 @@ import SearchWidget from "@/components/search/search";
 import Sidebar from "@/layouts/hydrogen/sidebar";
 import HeaderMenuRight from "@/layouts/header-menu-right";
 import StickyHeader from "@/layouts/sticky-header";
-import { Title } from "rizzui";
 
 export default function Header() {
   return (
@@ -18,10 +17,8 @@ export default function Header() {
         <Link
           href={"/"}
           aria-label="Site Logo"
-          className="me-4 shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:hidden"
-        >
-          <Title>LOGO</Title>
-        </Link>
+          className="me-4 w-9 shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:hidden"
+        ></Link>
 
         <SearchWidget />
       </div>
