@@ -12,11 +12,13 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.8",
     "@headlessui/react": "^1.7.18",
+    "@hookform/resolvers": "^3.3.4",
     "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "jotai": "^2.6.3",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
+    "pretty-bytes": "^6.1.1",
     "rc-pagination": "^4.0.4",
     "rc-rate": "^2.12.0",
     "rc-slider": "^10.5.0",
@@ -25,6 +27,7 @@
     "react-big-calendar": "^1.8.7",
     "react-datepicker": "^6.1.0",
     "react-dom": "^18",
+    "react-hook-form": "^7.50.1",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
     "react-svg-worldmap": "^2.0.0-alpha.16",
@@ -32,7 +35,8 @@
     "recharts": "^2.11.0",
     "rizzui": "^0.8.4",
     "simplebar-react": "^3.2.4",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
@@ -44,6 +48,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8.4.33",
+    "react-scroll": "^1.9.0",
     "rimraf": "^5.0.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
