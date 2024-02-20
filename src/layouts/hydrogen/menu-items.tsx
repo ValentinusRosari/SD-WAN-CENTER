@@ -17,7 +17,7 @@ export const menuItems = [
   },
   {
     name: "Ticket",
-    href: routes.eCommerce.dashboard,
+    href: routes.tables.stickyHeader,
     icon: <PiTicket />,
   },
   {
@@ -28,7 +28,7 @@ export const menuItems = [
   },
   {
     name: "Inventory",
-    href: routes.executive.dashboard,
+    href: routes.eCommerce.products,
     icon: <PiArchiveBox />,
     badge: "New",
   },
