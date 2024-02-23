@@ -1,47 +1,47 @@
-'use client';
+"use client";
 
-import { useCallback, useMemo, useState } from 'react';
-import { Button, Badge, Text } from 'rizzui';
-import { useColumn } from '@/hooks/use-column';
-import StatusField from '@/components/controlled-table/status-field';
-import { useTable } from '@/hooks/use-table';
-import { getColumns } from '@/app/shared/support/dashboard/tickets/columns';
-import ControlledTable from '@/components/controlled-table';
-import DateFiled from '@/components/controlled-table/date-field';
-import { getDateRangeStateValues } from '@/utils/get-formatted-date';
-import { PiTrashDuotone } from 'react-icons/pi';
-import { useMedia } from '@/hooks/use-media';
-import { ticketsData } from '@/data/tickets-data';
+import { useCallback, useMemo, useState } from "react";
+import { Button, Badge, Text } from "rizzui";
+import { useColumn } from "@/hooks/use-column";
+import StatusField from "@/components/controlled-table/status-field";
+import { useTable } from "@/hooks/use-table";
+import { getColumns } from "@/app/shared/main/dashboard/tickets/columns";
+import ControlledTable from "@/components/controlled-table";
+import DateFiled from "@/components/controlled-table/date-field";
+import { getDateRangeStateValues } from "@/utils/get-formatted-date";
+import { PiTrashDuotone } from "react-icons/pi";
+import { useMedia } from "@/hooks/use-media";
+import { ticketsData } from "@/data/tickets-data";
 
 const statuses = [
   {
-    value: 'InProgress',
-    label: 'In Progress',
+    value: "InProgress",
+    label: "In Progress",
   },
   {
-    value: 'Completed',
-    label: 'Completed',
+    value: "Completed",
+    label: "Completed",
   },
   {
-    value: 'Open',
-    label: 'Open',
+    value: "Open",
+    label: "Open",
   },
   {
-    value: 'Closed',
-    label: 'Closed',
+    value: "Closed",
+    label: "Closed",
   },
 ];
 
 const filterState = {
   date: [null, null],
-  status: '',
+  status: "",
 };
 
 export default function TicketsTable() {
   const [pageSize, setPageSize] = useState(10);
 
-  const isMediumScreen = useMedia('(max-width: 1860px)', false);
-  const isLargeScreen = useMedia('(min-width: 1861px)', false);
+  const isMediumScreen = useMedia("(max-width: 1860px)", false);
+  const isLargeScreen = useMedia("(min-width: 1861px)", false);
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -98,7 +98,7 @@ export default function TicketsTable() {
         filterOptions={{
           searchTerm,
           onSearchClear: () => {
-            handleSearch('');
+            handleSearch("");
           },
           onSearchChange: (event) => {
             handleSearch(event.target.value);
@@ -114,17 +114,17 @@ export default function TicketsTable() {
           <>
             <DateFiled
               className="w-full"
-              selected={getDateRangeStateValues(filters['date'][0])}
-              startDate={getDateRangeStateValues(filters['date'][0])}
-              endDate={getDateRangeStateValues(filters['date'][1])}
+              selected={getDateRangeStateValues(filters["date"][0])}
+              startDate={getDateRangeStateValues(filters["date"][0])}
+              endDate={getDateRangeStateValues(filters["date"][1])}
               onChange={(date: any) => {
-                updateFilter('date', date);
+                updateFilter("date", date);
               }}
               placeholderText="Select created date"
               {...(isMediumScreen && {
                 inputProps: {
-                  label: 'Created Date',
-                  labelClassName: 'font-medium text-gray-700',
+                  label: "Created Date",
+                  labelClassName: "font-medium text-gray-700",
                 },
               })}
               maxDate={new Date()}
@@ -132,10 +132,10 @@ export default function TicketsTable() {
 
             <StatusField
               options={statuses}
-              value={filters['status']}
+              value={filters["status"]}
               onChange={(value: string) => {
-                console.log('value', value);
-                updateFilter('status', value);
+                console.log("value", value);
+                updateFilter("status", value);
               }}
               getOptionValue={(option: { value: any }) => option.value}
               getOptionDisplayValue={(option: { value: any }) =>
@@ -145,14 +145,14 @@ export default function TicketsTable() {
                 renderOptionDisplayValue(selected)
               }
               {...(isMediumScreen && {
-                label: 'Status',
-                labelClassName: 'font-medium text-gray-700',
+                label: "Status",
+                labelClassName: "font-medium text-gray-700",
               })}
               {...(isLargeScreen && {
-                dropdownClassName: 'w-44',
+                dropdownClassName: "w-44",
               })}
               placement="bottom-start"
-              className={'w-auto'}
+              className={"w-auto"}
               dropdownClassName="!z-[10]"
             />
 
@@ -177,7 +177,7 @@ export default function TicketsTable() {
 
 function renderOptionDisplayValue(value: string) {
   switch (value) {
-    case 'InProgress':
+    case "InProgress":
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
@@ -186,7 +186,7 @@ function renderOptionDisplayValue(value: string) {
           </Text>
         </div>
       );
-    case 'Completed':
+    case "Completed":
       return (
         <div className="flex items-center">
           <Badge color="success" renderAsDot />
@@ -195,7 +195,7 @@ function renderOptionDisplayValue(value: string) {
           </Text>
         </div>
       );
-    case 'Open':
+    case "Open":
       return (
         <div className="flex items-center">
           <Badge color="danger" renderAsDot />

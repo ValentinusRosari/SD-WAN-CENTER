@@ -1,34 +1,34 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { routes } from '@/config/routes';
-import { Button } from 'rizzui';
-import WelcomeBanner from '@/components/banners/welcome';
-import StatCards from '@/app/shared/ecommerce/dashboard/stat-cards';
-import ProfitWidget from '@/app/shared/ecommerce/dashboard/profit-widget';
-import SalesReport from '@/app/shared/ecommerce/dashboard/sales-report';
-import BestSellers from '@/app/shared/ecommerce/dashboard/best-sellers';
-import RepeatCustomerRate from '@/app/shared/ecommerce/dashboard/repeat-customer-rate';
-import UserLocation from '@/app/shared/ecommerce/dashboard/user-location';
-import PromotionalSales from '@/app/shared/ecommerce/dashboard/promotional-sales';
-import RecentOrder from '@/app/shared/ecommerce/dashboard/recent-order';
-import StockReport from '@/app/shared/ecommerce/dashboard/stock-report';
-import { PiPlusBold } from 'react-icons/pi';
-import welcomeImg from '@public/shop-illustration.png';
-import HandWaveIcon from '@/components/icons/hand-wave';
+import Link from "next/link";
+import Image from "next/image";
+import { routes } from "@/config/routes";
+import { Button } from "rizzui";
+import WelcomeBanner from "@/components/banners/welcome";
+import StatCards from "@/app/shared/inventory/dashboard/stat-cards";
+import ProfitWidget from "@/app/shared/inventory/dashboard/profit-widget";
+import SalesReport from "@/app/shared/inventory/dashboard/sales-report";
+import BestSellers from "@/app/shared/inventory/dashboard/best-sellers";
+import RepeatCustomerRate from "@/app/shared/inventory/dashboard/repeat-customer-rate";
+import UserLocation from "@/app/shared/inventory/dashboard/user-location";
+import PromotionalSales from "@/app/shared/inventory/dashboard/promotional-sales";
+import RecentOrder from "@/app/shared/inventory/dashboard/recent-order";
+import StockReport from "@/app/shared/inventory/dashboard/stock-report";
+import { PiPlusBold } from "react-icons/pi";
+import welcomeImg from "@public/shop-illustration.png";
+import HandWaveIcon from "@/components/icons/hand-wave";
 
-export default function EcommerceDashboard() {
+export default function InventoryDashboard() {
   return (
     <div className="@container">
       <div className="grid grid-cols-1 gap-6 @4xl:grid-cols-2 @7xl:grid-cols-12 3xl:gap-8">
         <WelcomeBanner
           title={
             <>
-              Good Morning, <br /> Cameron{' '}
+              Good Morning, <br /> Cameron{" "}
               <HandWaveIcon className="inline-flex h-8 w-8" />
             </>
           }
           description={
-            'Here’s What happening on your store today. See the statistics at once.'
+            "Here’s What happening on your store today. See the statistics at once."
           }
           media={
             <div className="absolute -bottom-6 end-4 hidden w-[300px] @2xl:block lg:w-[320px] 2xl:-bottom-7 2xl:w-[330px]">
@@ -44,7 +44,7 @@ export default function EcommerceDashboard() {
           contentClassName="@2xl:max-w-[calc(100%-340px)]"
           className="border border-muted bg-gray-0 pb-8 @4xl:col-span-2 @7xl:col-span-8 lg:pb-9 dark:bg-gray-100/30"
         >
-          <Link href={routes.eCommerce.createProduct} className="inline-flex">
+          <Link href={routes.inventory.createProduct} className="inline-flex">
             <Button as="span" className="h-[38px] shadow md:h-10">
               <PiPlusBold className="me-1 h-4 w-4" /> Add Product
             </Button>

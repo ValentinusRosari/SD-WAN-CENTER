@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { HeaderCell } from '@/components/ui/table';
+import Link from "next/link";
+import { HeaderCell } from "@/components/ui/table";
 import {
   Badge,
   Text,
@@ -9,26 +9,26 @@ import {
   Progressbar,
   Tooltip,
   ActionIcon,
-} from 'rizzui';
-import { routes } from '@/config/routes';
-import EyeIcon from '@/components/icons/eye';
-import PencilIcon from '@/components/icons/pencil';
-import AvatarCard from '@/components/ui/avatar-card';
-import { ProductType } from '@/data/products-data';
-import { PiStarFill } from 'react-icons/pi';
-import DeletePopover from '@/app/shared/delete-popover';
+} from "rizzui";
+import { routes } from "@/config/routes";
+import EyeIcon from "@/components/icons/eye";
+import PencilIcon from "@/components/icons/pencil";
+import AvatarCard from "@/components/ui/avatar-card";
+import { ProductType } from "@/data/products-data";
+import { PiStarFill } from "react-icons/pi";
+import DeletePopover from "@/app/shared/delete-popover";
 
 // get status badge
 function getStatusBadge(status: string) {
   switch (status.toLowerCase()) {
-    case 'pending':
+    case "pending":
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
           <Text className="ms-2 font-medium text-orange-dark">{status}</Text>
         </div>
       );
-    case 'publish':
+    case "publish":
       return (
         <div className="flex items-center">
           <Badge color="success" renderAsDot />
@@ -53,7 +53,7 @@ function getStockStatus(status: number) {
         <Progressbar
           value={status}
           color="danger"
-          label={'out of stock'}
+          label={"out of stock"}
           className="h-1.5 w-24 bg-red/20"
         />
         <Text className="pt-1.5 text-[13px] text-gray-500">out of stock </Text>
@@ -65,7 +65,7 @@ function getStockStatus(status: number) {
         <Progressbar
           value={status}
           color="warning"
-          label={'low stock'}
+          label={"low stock"}
           className="h-1.5 w-24 bg-orange/20"
         />
         <Text className="pt-1.5 text-[13px] text-gray-500">
@@ -79,7 +79,7 @@ function getStockStatus(status: number) {
         <Progressbar
           value={status}
           color="success"
-          label={'stock available'}
+          label={"stock available"}
           className="h-1.5 w-24 bg-green/20"
         />
         <Text className="pt-1.5 text-[13px] text-gray-500">
@@ -104,7 +104,7 @@ function getRating(rating: number[]) {
         ) : (
           <PiStarFill className="w-4 fill-gray-300 text-gray-300" key={index} />
         );
-      })}{' '}
+      })}{" "}
       <span className="ms-1 shrink-0">({totalRating})</span>
     </div>
   );
@@ -133,15 +133,15 @@ export const getColumns = ({
     title: (
       <div className="ps-3.5">
         <Checkbox
-          title={'Select All'}
+          title={"Select All"}
           onChange={handleSelectAll}
           checked={checkedItems.length === data.length}
           className="cursor-pointer"
         />
       </div>
     ),
-    dataIndex: 'checked',
-    key: 'checked',
+    dataIndex: "checked",
+    key: "checked",
     width: 30,
     render: (_: any, row: any) => (
       <div className="inline-flex ps-3.5">
@@ -155,10 +155,10 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Product" />,
-    dataIndex: 'product',
-    key: 'product',
+    dataIndex: "product",
+    key: "product",
     width: 300,
-    hidden: 'customer',
+    hidden: "customer",
     render: (_: string, row: ProductType) => (
       <AvatarCard
         src={row.image}
@@ -166,16 +166,16 @@ export const getColumns = ({
         description={row.category}
         avatarProps={{
           name: row.name,
-          size: 'lg',
-          className: 'rounded-lg',
+          size: "lg",
+          className: "rounded-lg",
         }}
       />
     ),
   },
   {
     title: <HeaderCell title="SKU" />,
-    dataIndex: 'sku',
-    key: 'sku',
+    dataIndex: "sku",
+    key: "sku",
     width: 150,
     render: (sku: string) => <Text className="text-sm">SKU-{sku}</Text>,
   },
@@ -185,13 +185,13 @@ export const getColumns = ({
         title="Stock"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'stock'
+          sortConfig?.direction === "asc" && sortConfig?.key === "stock"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('stock'),
-    dataIndex: 'stock',
-    key: 'stock',
+    onHeaderCell: () => onHeaderCellClick("stock"),
+    dataIndex: "stock",
+    key: "stock",
     width: 200,
     render: (stock: number) => getStockStatus(stock),
   },
@@ -201,13 +201,13 @@ export const getColumns = ({
         title="Price"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'price'
+          sortConfig?.direction === "asc" && sortConfig?.key === "price"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('price'),
-    dataIndex: 'price',
-    key: 'price',
+    onHeaderCell: () => onHeaderCellClick("price"),
+    dataIndex: "price",
+    key: "price",
     width: 150,
     render: (value: string) => (
       <Text className="font-medium text-gray-700">${value}</Text>
@@ -215,46 +215,46 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Rating" />,
-    dataIndex: 'rating',
-    key: 'rating',
+    dataIndex: "rating",
+    key: "rating",
     width: 200,
     render: (rating: number[]) => getRating(rating),
   },
   {
     title: <HeaderCell title="Status" />,
-    dataIndex: 'status',
-    key: 'status',
+    dataIndex: "status",
+    key: "status",
     width: 120,
     render: (value: string) => getStatusBadge(value),
   },
   {
     // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
     title: <HeaderCell title="Actions" className="opacity-0" />,
-    dataIndex: 'action',
-    key: 'action',
+    dataIndex: "action",
+    key: "action",
     width: 120,
     render: (_: string, row: ProductType) => (
       <div className="flex items-center justify-end gap-3 pe-4">
         <Tooltip
           size="sm"
-          content={'Edit Product'}
+          content={"Edit Product"}
           placement="top"
           color="invert"
         >
-          <Link href={routes.eCommerce.ediProduct(row.id)}>
-            <ActionIcon size="sm" variant="outline" aria-label={'Edit Product'}>
+          <Link href={routes.inventory.ediProduct(row.id)}>
+            <ActionIcon size="sm" variant="outline" aria-label={"Edit Product"}>
               <PencilIcon className="h-4 w-4" />
             </ActionIcon>
           </Link>
         </Tooltip>
         <Tooltip
           size="sm"
-          content={'View Product'}
+          content={"View Product"}
           placement="top"
           color="invert"
         >
-          <Link href={routes.eCommerce.productDetails(row.id)}>
-            <ActionIcon size="sm" variant="outline" aria-label={'View Product'}>
+          <Link href={routes.inventory.productDetails(row.id)}>
+            <ActionIcon size="sm" variant="outline" aria-label={"View Product"}>
               <EyeIcon className="h-4 w-4" />
             </ActionIcon>
           </Link>
