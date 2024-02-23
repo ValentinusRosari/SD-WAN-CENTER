@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { LAYOUT_OPTIONS } from "@/config/enums";
 import { OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
+import logoIconImg  from "../../public/logo-short.svg"
 
 enum MODE {
   DARK = "dark",
@@ -8,10 +9,10 @@ enum MODE {
 }
 
 export const siteConfig = {
-  title: "Isomorphic - React Typescript Admin Dashboard Template",
-  description: `Isomorphic the ultimate React TypeScript Admin Template. Streamline your admin dashboard development with our feature-rich, responsive, and highly customizable solution. Boost productivity and create stunning admin interfaces effortlessly.`,
+  title: "SD-WAN CENTER",
+  description: `Write your app description`,
   // logo: logoImg,
-  // icon: logoIconImg,
+  icon: logoIconImg,
   mode: MODE.LIGHT,
   layout: LAYOUT_OPTIONS.HYDROGEN,
   // TODO: favicon
@@ -23,10 +24,10 @@ export const metaObject = (
   description: string = siteConfig.description
 ): Metadata => {
   return {
-    title: title ? `${title} - Isomorphic Furyroad` : siteConfig.title,
+    title: title ? `${title} - SD-WAN CENTER` : siteConfig.title,
     description,
     openGraph: openGraph ?? {
-      title: title ? `${title} - Isomorphic Furyroad` : title,
+      title: title ? `${title} - SD-WAN CENTER` : title,
       description,
       url: "https://isomorphic-furyroad.vercel.app",
       siteName: "Isomorphic Furyroad", // https://developers.google.com/search/docs/appearance/site-names

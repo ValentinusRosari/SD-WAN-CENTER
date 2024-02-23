@@ -106,20 +106,20 @@ export const pageLinks = [
     href: routes.main.templates,
   },
   {
-    name: "Invoice List",
-    href: routes.invoice.home,
+    name: "User List",
+    href: routes.user.home,
   },
   {
-    name: "Invoice Details",
-    href: routes.invoice.details(DUMMY_ID),
+    name: "User Details",
+    href: routes.user.details(DUMMY_ID),
   },
   {
-    name: "Create Invoice",
-    href: routes.invoice.create,
+    name: "Create User",
+    href: routes.user.create,
   },
   {
-    name: "Edit Invoice",
-    href: routes.invoice.edit(DUMMY_ID),
+    name: "Edit User",
+    href: routes.user.edit(DUMMY_ID),
   },
   {
     name: "Shipment List",

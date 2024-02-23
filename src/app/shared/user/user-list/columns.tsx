@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { type Invoice } from '@/data/invoice-data';
+import { type User } from '@/data/user-data';
 import { routes } from '@/config/routes';
 import { Text, Badge, Tooltip, Checkbox, ActionIcon } from 'rizzui';
 import { HeaderCell } from '@/components/ui/table';
@@ -94,7 +94,7 @@ export const getColumns = ({
     width: 250,
     hidden: 'customer',
 
-    render: (_: string, row: Invoice) => (
+    render: (_: string, row: User) => (
       <AvatarCard
         src={row.avatar}
         name={row.name}
@@ -177,11 +177,11 @@ export const getColumns = ({
       <div className="flex items-center justify-end gap-3 pe-3">
         <Tooltip
           size="sm"
-          content={'Edit Invoice'}
+          content={'Edit User'}
           placement="top"
           color="invert"
         >
-          <Link href={routes.invoice.edit(row.id)}>
+          <Link href={routes.user.edit(row.id)}>
             <ActionIcon
               as="span"
               size="sm"
@@ -194,11 +194,11 @@ export const getColumns = ({
         </Tooltip>
         <Tooltip
           size="sm"
-          content={'View Invoice'}
+          content={'View User'}
           placement="top"
           color="invert"
         >
-          <Link href={routes.invoice.details(row.id)}>
+          <Link href={routes.user.details(row.id)}>
             <ActionIcon
               as="span"
               size="sm"
@@ -210,8 +210,8 @@ export const getColumns = ({
           </Link>
         </Tooltip>
         <DeletePopover
-          title={`Delete the invoice`}
-          description={`Are you sure you want to delete this #${row.id} invoice?`}
+          title={`Delete the User`}
+          description={`Are you sure you want to delete this #${row.id} user?`}
           onDelete={() => onDeleteItem(row.id)}
         />
       </div>

@@ -10,37 +10,37 @@ import {
   FormBlockWrapper,
   statusOptions,
   renderOptionDisplayValue,
-} from '@/app/shared/invoice/form-utils';
-import { AddInvoiceItems } from '@/app/shared/invoice/add-invoice-items';
+} from '@/app/shared/user/form-utils';
+import { AddUserItems } from '@/app/shared/user/add-user-items';
 import FormFooter from '@/components/form-footer';
 import { toast } from 'react-hot-toast';
 import {
-  InvoiceFormInput,
-  invoiceFormSchema,
-} from '@/utils/validators/create-invoice.schema';
+  UserFormInput,
+  userFormSchema,
+} from '@/utils/validators/create-user.schema';
 
-const invoiceItems = [
+const userItems = [
   { item: '', description: '', quantity: 1, price: undefined },
 ];
 
-export default function CreateInvoice({
+export default function CreateUser({
   id,
   record,
 }: {
   id?: string;
-  record?: InvoiceFormInput;
+  record?: UserFormInput;
 }) {
   const [reset, setReset] = useState({});
   const [isLoading, setLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<InvoiceFormInput> = (data) => {
+  const onSubmit: SubmitHandler<UserFormInput> = (data) => {
     toast.success(
-      <Text as="b">Invoice successfully {id ? 'updated' : 'created'}</Text>
+      <Text as="b">User successfully {id ? 'updated' : 'created'}</Text>
     );
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      console.log('createInvoice data ->', data);
+      console.log('createUser data ->', data);
       setReset({
         fromName: '',
         fromAddress: '',
@@ -53,7 +53,7 @@ export default function CreateInvoice({
         taxes: '',
         createDate: new Date(),
         status: 'draft',
-        items: invoiceItems,
+        items: userItems,
       });
     }, 600);
   };
@@ -62,17 +62,17 @@ export default function CreateInvoice({
     ? record.items.map((item) => ({
         ...item,
       }))
-    : invoiceItems;
+    : userItems;
 
   return (
-    <Form<InvoiceFormInput>
-      validationSchema={invoiceFormSchema}
+    <Form<UserFormInput>
+      validationSchema={userFormSchema}
       resetValues={reset}
       onSubmit={onSubmit}
       useFormProps={{
         defaultValues: {
           ...record,
-          invoiceNumber: 'INV-0071',
+          userNumber: 'INV-0071',
           createDate: new Date(),
           // status: 'draft',
           items: newItems,
@@ -86,7 +86,7 @@ export default function CreateInvoice({
             <div className="grid grid-cols-1 gap-8 divide-y divide-dashed divide-gray-200 @2xl:gap-10 @3xl:gap-12">
               <FormBlockWrapper
                 title={'From:'}
-                description={'From he who sending this invoice'}
+                description={'From he who sending this user'}
               >
                 <Input
                   label="Name"
@@ -118,7 +118,7 @@ export default function CreateInvoice({
 
               <FormBlockWrapper
                 title={'To:'}
-                description={'To he who will receive this invoice'}
+                description={'To he who will receive this user'}
                 className="pt-7 @2xl:pt-9 @3xl:pt-11"
               >
                 <Input
@@ -151,16 +151,16 @@ export default function CreateInvoice({
 
               <FormBlockWrapper
                 title={'Schedule:'}
-                description={'To he who will receive this invoice'}
+                description={'To he who will receive this user'}
                 className="pt-7 @2xl:pt-9 @3xl:pt-11"
               >
                 <div className="col-span-2 grid grid-cols-1 items-baseline gap-5 @lg:grid-cols-2 @5xl:grid-cols-4">
                   <Input
-                    label="Invoice Number"
-                    placeholder="Enter invoice number"
-                    {...register('invoiceNumber')}
+                    label="User Number"
+                    placeholder="Enter user number"
+                    {...register('userNumber')}
                     readOnly
-                    error={errors.invoiceNumber?.message}
+                    error={errors.userNumber?.message}
                   />
                   <div className="[&>.react-datepicker-wrapper]:w-full">
                     <Controller
@@ -219,7 +219,7 @@ export default function CreateInvoice({
                 </div>
               </FormBlockWrapper>
 
-              <AddInvoiceItems
+              <AddUserItems
                 watch={watch}
                 control={control}
                 register={register}
@@ -230,7 +230,7 @@ export default function CreateInvoice({
 
           <FormFooter
             isLoading={isLoading}
-            submitBtnText={id ? 'Update Invoice' : 'Create Invoice'}
+            submitBtnText={id ? 'Update User' : 'Create User'}
           />
         </>
       )}

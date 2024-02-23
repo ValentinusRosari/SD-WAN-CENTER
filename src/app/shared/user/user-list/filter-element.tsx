@@ -11,7 +11,7 @@ import { useMedia } from '@/hooks/use-media';
 import {
   renderOptionDisplayValue,
   statusOptions,
-} from '@/app/shared/invoice/form-utils';
+} from '@/app/shared/user/form-utils';
 
 type FilterElementProps = {
   isFiltered: boolean;

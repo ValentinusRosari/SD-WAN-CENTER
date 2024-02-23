@@ -1,33 +1,23 @@
 import { PiDownloadSimpleBold } from 'react-icons/pi';
-import InvoiceDetails from '@/app/shared/invoice/invoice-details';
 import PrintButton from '@/app/shared/print-button';
 import PageHeader from '@/app/shared/page-header';
 import { metaObject } from '@/config/site.config';
 import { Button } from 'rizzui';
 import { routes } from '@/config/routes';
+import UserDetails from '@/app/shared/user/user-details';
 
 export const metadata = {
-  ...metaObject('Invoice'),
+  ...metaObject('User'),
 };
 
 const pageHeader = {
-  title: 'Invoice Details',
+  title: 'User Details',
   breadcrumb: [
-    {
-      href: routes.eCommerce.dashboard,
-      name: 'Home',
-    },
-    {
-      href: routes.invoice.home,
-      name: 'Invoice',
-    },
-    {
-      name: 'Details',
-    },
+    
   ],
 };
 
-export default function InvoiceDetailsPage() {
+export default function UserDetailsPage() {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
@@ -40,7 +30,7 @@ export default function InvoiceDetailsPage() {
         </div>
       </PageHeader>
 
-      <InvoiceDetails />
+      <UserDetails />
     </>
   );
 }

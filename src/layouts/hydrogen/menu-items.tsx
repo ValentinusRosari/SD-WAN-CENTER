@@ -34,7 +34,7 @@ export const menuItems = [
   },
   {
     name: "User",
-    href: routes.invoice.home,
+    href: routes.user.home,
     icon: <PiUser />,
   },
 ];

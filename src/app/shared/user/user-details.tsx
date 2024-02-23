@@ -6,7 +6,7 @@ import { Badge, Title, Text } from 'rizzui';
 import Table from '@/components/ui/table';
 import { siteConfig } from '@/config/site.config';
 
-const invoiceItems = [
+const userItems = [
   {
     id: '1',
     product: {
@@ -91,10 +91,10 @@ const columns = [
   },
 ];
 
-function InvoiceDetailsListTable() {
+function UserDetailsListTable() {
   return (
     <Table
-      data={invoiceItems}
+      data={userItems}
       columns={columns}
       variant="minimal"
       rowKey={(record) => record.id}
@@ -104,16 +104,11 @@ function InvoiceDetailsListTable() {
   );
 }
 
-export default function InvoiceDetails() {
+export default function UserDetails() {
   return (
     <div className="w-full rounded-xl border border-muted p-5 text-sm sm:p-6 lg:p-8 2xl:p-10">
       <div className="mb-12 flex flex-col-reverse items-start justify-between md:mb-16 md:flex-row">
-        <Image
-          src={siteConfig.logo}
-          alt={siteConfig.title}
-          className="dark:invert"
-          priority
-        />
+     
         <div className="mb-4 md:mb-0">
           <Badge
             variant="flat"
@@ -124,7 +119,7 @@ export default function InvoiceDetails() {
             Paid
           </Badge>
           <Title as="h6">INV - #246098</Title>
-          <Text className="mt-0.5 text-gray-500">Invoice Number</Text>
+          <Text className="mt-0.5 text-gray-500">User Number</Text>
         </div>
       </div>
 
@@ -174,7 +169,7 @@ export default function InvoiceDetails() {
         </div>
       </div>
 
-      <InvoiceDetailsListTable />
+      <UserDetailsListTable />
 
       <div className="flex flex-col-reverse items-start justify-between border-t border-muted pb-4 pt-8 xs:flex-row">
         <div className="mt-6 max-w-md pe-4 xs:mt-0">
