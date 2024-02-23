@@ -67,11 +67,11 @@ export const routes = {
   },
   eventCalendar: "/event-calendar",
   rolesPermissions: "/roles-permissions",
-  invoice: {
-    home: "/invoice",
-    create: "/invoice/create",
-    details: (id: string) => `/invoice/${id}`,
-    edit: (id: string) => `/invoice/${id}/edit`,
+  user: {
+    home: "/user",
+    create: "/user/create",
+    details: (id: string) => `/user/${id}`,
+    edit: (id: string) => `/user/${id}/edit`,
   },
   widgets: {
     cards: "/widgets/cards",
@@ -129,4 +129,6 @@ export const routes = {
     otp5: "/auth/otp-5",
   },
   signIn: "/signin",
+  forgotPassword: "/forgotpassword",
+  signUp: "/signup",
 };

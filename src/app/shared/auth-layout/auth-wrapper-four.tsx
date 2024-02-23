@@ -106,24 +106,7 @@ export default function AuthWrapperFour({
 function AuthHeader() {
   return (
     <header className="flex items-center justify-between p-4 lg:px-16 lg:py-6 2xl:px-24">
-      <Link href={'/'}>
-        <Image
-          src={siteConfig.logo}
-          alt={siteConfig.title}
-          className="dark:invert"
-          priority
-        />
-      </Link>
-      <div className="flex items-center space-x-2 md:space-x-4">
-        <AuthNavLink href={routes.auth.signIn4}>
-          <PiArrowLineRight className="h-4 w-4" />
-          <span>Login</span>
-        </AuthNavLink>
-        <AuthNavLink href={routes.auth.signUp4}>
-          <PiUserCirclePlus className="h-4 w-4" />
-          <span>Sign Up</span>
-        </AuthNavLink>
-      </div>
+     
     </header>
   );
 }

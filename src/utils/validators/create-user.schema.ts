@@ -1,14 +1,14 @@
 import { z } from 'zod';
 import { messages } from '@/config/messages';
 
-export const invoiceFormSchema = z.object({
+export const userFormSchema = z.object({
   fromName: z.string().min(1, { message: messages.nameIsRequired }),
   fromAddress: z.string().min(1, { message: messages.addressIsRequired }),
   fromPhone: z.string().optional(),
   toName: z.string().min(1, { message: messages.nameIsRequired }),
   toAddress: z.string().min(1, { message: messages.addressIsRequired }),
   toPhone: z.string().optional(),
-  invoiceNumber: z.string({
+  userNumber: z.string({
     required_error: 'This field is required',
   }),
   createDate: z.date({
@@ -40,4 +40,4 @@ export const invoiceFormSchema = z.object({
 });
 
 // generate form types from zod validation schema
-export type InvoiceFormInput = z.infer<typeof invoiceFormSchema>;
+export type UserFormInput = z.infer<typeof userFormSchema>;

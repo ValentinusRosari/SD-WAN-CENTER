@@ -1,4 +1,4 @@
-export type Invoice = {
+export type User = {
   id: string;
   name: string;
   userName: string;
@@ -10,7 +10,7 @@ export type Invoice = {
   createdAt: Date;
 };
 
-export const invoiceData = [
+export const userData = [
   {
     id: '62447',
     name: 'Francis Sanford MD',

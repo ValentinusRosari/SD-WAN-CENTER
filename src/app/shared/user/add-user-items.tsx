@@ -5,7 +5,7 @@ import { useFieldArray, Controller } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { calculateTotalPrice } from '@/utils/calculate-total-price';
 import { PiMinusBold, PiPlusBold, PiTrashBold } from 'react-icons/pi';
-import { FormBlockWrapper } from '@/app/shared/invoice/form-utils';
+import { FormBlockWrapper } from '@/app/shared/user/form-utils';
 
 // quantity component for invoice
 function QuantityInput({
@@ -82,7 +82,7 @@ function QuantityInput({
 }
 
 // multiple invoice items generate component
-export function AddInvoiceItems({ watch, register, control, errors }: any) {
+export function AddUserItems({ watch, register, control, errors }: any) {
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'items',

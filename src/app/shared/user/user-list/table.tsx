@@ -6,9 +6,9 @@ import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { Button } from 'rizzui';
 import ControlledTable from '@/components/controlled-table';
-import { getColumns } from '@/app/shared/invoice/invoice-list/columns';
+import { getColumns } from '@/app/shared/user/user-list/columns';
 const FilterElement = dynamic(
-  () => import('@/app/shared/invoice/invoice-list/filter-element'),
+  () => import('@/app/shared/user/user-list/filter-element'),
   { ssr: false }
 );
 const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
@@ -22,7 +22,7 @@ const filterState = {
   status: '',
 };
 
-export default function InvoiceTable({ data = [] }: { data: any[] }) {
+export default function UserTable({ data = [] }: { data: any[] }) {
   const [pageSize, setPageSize] = useState(10);
 
   const onHeaderCellClick = (value: string) => ({
@@ -130,7 +130,7 @@ export default function InvoiceTable({ data = [] }: { data: any[] }) {
           >
             <Button size="sm" className="dark:bg-gray-300 dark:text-gray-800">
               Re-send {selectedRowKeys.length}{' '}
-              {selectedRowKeys.length > 1 ? 'Invoices' : 'Invoice'}{' '}
+              {selectedRowKeys.length > 1 ? 'Users' : 'User'}{' '}
             </Button>
           </TableFooter>
         }

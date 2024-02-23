@@ -5,14 +5,14 @@ import { Title, Text, Badge } from 'rizzui';
 import cn from '@/utils/class-names';
 
 // form zod validation schema
-export const invoiceFormSchema = z.object({
+export const userFormSchema = z.object({
   fromName: z.string().min(1, { message: 'This field is required' }),
   fromAddress: z.string().min(1, { message: 'This field is required' }),
   fromPhone: z.string().min(1, { message: 'Invalid phone number' }).optional(),
   toName: z.string().min(1, { message: 'This field is required' }),
   toAddress: z.string().min(1, { message: 'This field is required' }),
   toPhone: z.string().min(1, { message: 'Invalid phone number' }).optional(),
-  invoiceNumber: z.string({
+  userNumber: z.string({
     required_error: 'This field is required',
   }),
   createDate: z
@@ -51,7 +51,7 @@ export const invoiceFormSchema = z.object({
 });
 
 // generate form types from zod validation schema
-export type InvoiceFormTypes = z.infer<typeof invoiceFormSchema>;
+export type UserFormTypes = z.infer<typeof userFormSchema>;
 
 // invoice status options
 export const statusOptions = [
