@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useCallback, useMemo, useState } from 'react';
-import dynamic from 'next/dynamic';
-import { useTable } from '@/hooks/use-table';
-import { useColumn } from '@/hooks/use-column';
-import { Button } from 'rizzui';
-import ControlledTable from '@/components/controlled-table';
-import { getColumns } from '@/app/shared/ecommerce/product/product-list/columns';
+import { useCallback, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+import { useTable } from "@/hooks/use-table";
+import { useColumn } from "@/hooks/use-column";
+import { Button } from "rizzui";
+import ControlledTable from "@/components/controlled-table";
+import { getColumns } from "@/app/shared/inventory/product/product-list/columns";
 const FilterElement = dynamic(
-  () => import('@/app/shared/ecommerce/product/product-list/filter-element'),
+  () => import("@/app/shared/inventory/product/product-list/filter-element"),
   { ssr: false }
 );
-const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
+const TableFooter = dynamic(() => import("@/app/shared/table-footer"), {
   ssr: false,
 });
 
 const filterState = {
-  price: ['', ''],
+  price: ["", ""],
   createdAt: [null, null],
-  status: '',
+  status: "",
 };
 
 export default function ProductsTable({ data = [] }: { data: any[] }) {
@@ -100,7 +100,7 @@ export default function ProductsTable({ data = [] }: { data: any[] }) {
       filterOptions={{
         searchTerm,
         onSearchClear: () => {
-          handleSearch('');
+          handleSearch("");
         },
         onSearchChange: (event) => {
           handleSearch(event.target.value);
@@ -129,8 +129,8 @@ export default function ProductsTable({ data = [] }: { data: any[] }) {
           }}
         >
           <Button size="sm" className="dark:bg-gray-300 dark:text-gray-800">
-            Download {selectedRowKeys.length}{' '}
-            {selectedRowKeys.length > 1 ? 'Products' : 'Product'}
+            Download {selectedRowKeys.length}{" "}
+            {selectedRowKeys.length > 1 ? "Products" : "Product"}
           </Button>
         </TableFooter>
       }

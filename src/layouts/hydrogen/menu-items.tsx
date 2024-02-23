@@ -11,7 +11,7 @@ import {
 export const menuItems = [
   {
     name: "Dashboard",
-    href: routes.support.dashboard,
+    href: routes.main.dashboard,
     icon: <PiChartBarDuotone />,
     badge: "",
   },
@@ -28,7 +28,7 @@ export const menuItems = [
   },
   {
     name: "Inventory",
-    href: routes.eCommerce.products,
+    href: routes.inventory.products,
     icon: <PiArchiveBox />,
     badge: "New",
   },

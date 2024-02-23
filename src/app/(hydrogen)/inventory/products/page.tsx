@@ -1,32 +1,20 @@
-import Link from 'next/link';
-import { PiPlusBold } from 'react-icons/pi';
-import { routes } from '@/config/routes';
-import { Button } from 'rizzui';
-import PageHeader from '@/app/shared/page-header';
-import ProductsTable from '@/app/shared/ecommerce/product/product-list/table';
-import { productsData } from '@/data/products-data';
-import { metaObject } from '@/config/site.config';
-import ExportButton from '@/app/shared/export-button';
+import Link from "next/link";
+import { PiPlusBold } from "react-icons/pi";
+import { routes } from "@/config/routes";
+import { Button } from "rizzui";
+import PageHeader from "@/app/shared/page-header";
+import ProductsTable from "@/app/shared/inventory/product/product-list/table";
+import { productsData } from "@/data/products-data";
+import { metaObject } from "@/config/site.config";
+import ExportButton from "@/app/shared/export-button";
 
 export const metadata = {
-  ...metaObject('Products'),
+  ...metaObject("Inventory"),
 };
 
 const pageHeader = {
-  title: 'Products',
-  breadcrumb: [
-    {
-      href: routes.eCommerce.dashboard,
-      name: 'E-Commerce',
-    },
-    {
-      href: routes.eCommerce.products,
-      name: 'Products',
-    },
-    {
-      name: 'List',
-    },
-  ],
+  title: "Inventory Management",
+  breadcrumb: [],
 };
 
 export default function ProductsPage() {
@@ -40,7 +28,7 @@ export default function ProductsPage() {
             header="ID,Name,Category,Product Thumbnail,SKU,Stock,Price,Status,Rating"
           />
           <Link
-            href={routes.eCommerce.createProduct}
+            href={routes.inventory.createProduct}
             className="w-full @lg:w-auto"
           >
             <Button as="span" className="w-full @lg:w-auto">

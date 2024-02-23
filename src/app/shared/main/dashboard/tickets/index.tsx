@@ -1,6 +1,6 @@
-import TicketsTable from '@/app/shared/support/dashboard/tickets/table';
-import WidgetCard from '@/components/cards/widget-card';
-import cn from '@/utils/class-names';
+import TicketsTable from "@/app/shared/main/dashboard/tickets/table";
+import WidgetCard from "@/components/cards/widget-card";
+import cn from "@/utils/class-names";
 
 interface IndexProps {
   className?: string;
