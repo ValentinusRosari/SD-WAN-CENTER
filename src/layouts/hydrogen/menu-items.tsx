@@ -11,13 +11,13 @@ import {
 export const menuItems = [
   {
     name: "Dashboard",
-    href: routes.support.dashboard,
+    href: routes.main.dashboard,
     icon: <PiChartBarDuotone />,
     badge: "",
   },
   {
     name: "Ticket",
-    href: routes.eCommerce.dashboard,
+    href: routes.tables.stickyHeader,
     icon: <PiTicket />,
   },
   {
@@ -28,13 +28,13 @@ export const menuItems = [
   },
   {
     name: "Inventory",
-    href: routes.executive.dashboard,
+    href: routes.inventory.products,
     icon: <PiArchiveBox />,
     badge: "New",
   },
   {
     name: "User",
-    href: routes.logistics.dashboard,
+    href: routes.user.home,
     icon: <PiUser />,
   },
 ];

@@ -1,15 +1,43 @@
 import { z } from 'zod';
 import { messages } from '@/config/messages';
-import { validateEmail } from '@/utils/validators/common-rules';
 
-// form zod validation schema
-export const createUserSchema = z.object({
-  fullName: z.string().min(1, { message: messages.fullNameIsRequired }),
-  email: validateEmail,
-  role: z.string().min(1, { message: messages.roleIsRequired }),
-  permissions: z.string().min(1, { message: messages.permissionIsRequired }),
-  status: z.string().min(1, { message: messages.statusIsRequired }),
+export const userFormSchema = z.object({
+  fromName: z.string().min(1, { message: messages.nameIsRequired }),
+  fromAddress: z.string().min(1, { message: messages.addressIsRequired }),
+  fromPhone: z.string().optional(),
+  toName: z.string().min(1, { message: messages.nameIsRequired }),
+  toAddress: z.string().min(1, { message: messages.addressIsRequired }),
+  toPhone: z.string().optional(),
+  userNumber: z.string({
+    required_error: 'This field is required',
+  }),
+  createDate: z.date({
+    required_error: messages.createDateIsRequired,
+  }),
+  dueDate: z.date({
+    required_error: messages.dueDateIsRequired,
+  }),
+  status: z.string({
+    required_error: messages.statusIsRequired,
+  }),
+  shipping: z.coerce
+    .number()
+    .min(1, { message: messages.shippingPriceIsRequired }),
+  discount: z.coerce.number().min(1, { message: messages.discountIsRequired }),
+  taxes: z.coerce.number().min(1, { message: messages.taxIsRequired }),
+  items: z.array(
+    z.object({
+      item: z.string().min(1, { message: messages.itemNameIsRequired }),
+      description: z.string().min(1, { message: messages.itemDescIsRequired }),
+      quantity: z.coerce
+        .number()
+        .min(1, { message: messages.itemQtyIsRequired }),
+      price: z.coerce
+        .number()
+        .min(1, { message: messages.itemPriceIsRequired }),
+    })
+  ),
 });
 
 // generate form types from zod validation schema
-export type CreateUserInput = z.infer<typeof createUserSchema>;
+export type UserFormInput = z.infer<typeof userFormSchema>;
