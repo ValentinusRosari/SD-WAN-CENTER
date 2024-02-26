@@ -13,10 +13,8 @@ export const metadata = {
 };
 
 const pageHeader = {
-  title: "User List",
-  breadcrumb: [
-    
-  ],
+  title: "User Management",
+  breadcrumb: [],
 };
 
 export default function UserListPage() {
