@@ -13,9 +13,14 @@ export default function ColorOptions() {
   const { setColorPresets } = useColorPresets();
   const { colorPresetName, setColorPresetName } = useColorPresetName();
 
+  const containerStyle = {
+    opacity: theme === 'dark' ? 0 : 1, // Set initial opacity based on the theme
+    transition: 'opacity 0.5s ease-in-out', // Add transition for smooth animation
+  };
+  
   return (
-    <DrawerBlock title="Colors">
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+    <DrawerBlock title="Color">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-1">
         {COLOR_PRESETS.map((preset) => (
           <div
             key={preset?.name}
@@ -28,7 +33,7 @@ export default function ColorOptions() {
                 setColorPresetName(preset?.name.toLowerCase());
               }}
               className={cn(
-                'grid h-auto w-full place-content-center gap-2 rounded-lg border-2 border-transparent py-1.5 shadow-sm transition duration-300 focus-visible:outline-none',
+                'grid h-auto w-full place-content-center gap-2 rounded-lg border-2 border-transparent py-3 shadow-sm transition duration-300 focus-visible:outline-none',
                 colorPresetName?.toLowerCase() === preset?.name?.toLowerCase()
                   ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-gray-100'
                   : 'hover:border-primary'
