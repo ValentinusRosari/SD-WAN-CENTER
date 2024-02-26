@@ -12,6 +12,7 @@ export const metadata = {
 const pageHeader = {
   title: "Ticket Monitoring",
   breadcrumb: [],
+  className:"pt-7",
 };
 
 export default function StickyTablePage() {
