@@ -21,7 +21,7 @@ const pageHeader = {
 
 export default function UserListPage() {
   return (
-    <>
+    <div className="border border-muted bg-gray-0 p-7 dark:bg-gray-50 lg:p-7 rounded-lg flex flex-col min-h-[480px] [&_.widget-card-header_h5]:font-medium">
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
         <div className="mt-4 flex items-center gap-3 @lg:mt-0">
           <ExportButton
@@ -39,6 +39,6 @@ export default function UserListPage() {
       </PageHeader>
 
       <UserTable data={userData} />
-    </>
+    </div>
   );
 }

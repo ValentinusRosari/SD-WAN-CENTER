@@ -4,7 +4,7 @@ import { Title } from "rizzui";
 export default function GrafanaDashboard() {
   return (
     <div>
-      <Title className="sticky top-0">Alarm Monitoring</Title>
+      <Title className="sticky top-0 pt-5 pb-7">Alarm Monitoring</Title>
       <iframe
         title="Grafana Dashboard"
         width="100%"
