@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
@@ -16,7 +16,7 @@ export default function Sidebar({ className }: { className?: string }) {
   // Define a function to get the background color based on the theme
   const getBackgroundColor = () => {
     // Use the theme value to conditionally set the background color
-    return theme === 'dark' ? 'bg-gray-100/50' : 'bg-primary';
+    return theme === "dark" ? "bg-gray-100/50" : "bg-primary";
   };
 
   return (
@@ -26,17 +26,26 @@ export default function Sidebar({ className }: { className?: string }) {
         className
       )}
     >
-      <div className={cn("sticky top-0 z-40 px-6 pb-5 pt-5 2xl:px-8 2xl:pt-6", getBackgroundColor())}>
+      <div
+        className={cn(
+          "sticky top-0 z-40 px-6 pb-5 pt-5 2xl:px-8 2xl:pt-6",
+          getBackgroundColor()
+        )}
+      >
         <Link
           href={"/"}
           aria-label="Site Logo"
           className="text-gray-800 hover:text-gray-900"
         >
-          <Title className="text-white hover:text-opacity-80">SD-WAN CENTER</Title>
+          <Title className="text-white hover:text-opacity-80">
+            SD-WAN CENTER
+          </Title>
         </Link>
       </div>
 
-      <SimpleBar className={cn("h-[calc(100%)]", getBackgroundColor())}>
+      <SimpleBar
+        className={cn("h-[calc(100%)] border-t-2", getBackgroundColor())}
+      >
         <div className="mt-4 pb-3 3xl:mt-6">
           {menuItems.map((item, index) => (
             <Fragment key={item.name + "-" + index}>
@@ -79,6 +88,9 @@ export default function Sidebar({ className }: { className?: string }) {
               )}
             </Fragment>
           ))}
+        </div>
+        <div className="border-t-2 fixed bottom-10 left-10 text-center leading-relaxed text-gray-10">
+          PT Telkom Indonesia 2024
         </div>
       </SimpleBar>
     </aside>
