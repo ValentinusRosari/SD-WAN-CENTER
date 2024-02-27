@@ -1,11 +1,17 @@
-import FileDashboard from '@/app/shared/file/dashboard';
-import { metaObject } from '@/config/site.config';
-import MainDashboardPage from './main/page';
+"use client";
 
-export const metadata = {
-  ...metaObject('main dashboard'),
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+const RedirectToLogin = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to login page
+    router.push("/signin");
+  }, []);
+
+  return null;
 };
 
-export default function FileDashboardPage() {
-  return <MainDashboardPage />;
-}
+export default RedirectToLogin;

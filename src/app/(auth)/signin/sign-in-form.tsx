@@ -1,30 +1,40 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { signIn } from 'next-auth/react';
-import { SubmitHandler } from 'react-hook-form';
-import { PiArrowRightBold } from 'react-icons/pi';
-import { Checkbox, Password, Button, Input, Text } from 'rizzui';
-import { Form } from '@/components/ui/form';
-import { routes } from '@/config/routes';
-import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
+import Link from "next/link";
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { SubmitHandler } from "react-hook-form";
+import { PiArrowRightBold } from "react-icons/pi";
+import { Checkbox, Password, Button, Input, Text } from "rizzui";
+import { Form } from "@/components/ui/form";
+import { routes } from "@/config/routes";
+import { loginSchema, LoginSchema } from "@/utils/validators/login.schema";
+import { useRouter } from "next/navigation";
 
 const initialValues: LoginSchema = {
-  email: 'admin@admin.com',
-  password: 'admin',
+  email: "admin@admin.com",
+  password: "admin",
   rememberMe: true,
 };
 
 export default function SignInForm() {
+  const router = useRouter();
   //TODO: why we need to reset it here
   const [reset, setReset] = useState({});
 
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => {
-    console.log(data);
-    signIn('credentials', {
+  const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
+    const result = await signIn("credentials", {
       ...data,
+      redirect: false, // prevent automatic redirection
     });
+
+    if (!result?.error) {
+      // If sign in succeeds, redirect to /main
+      router.push("/main");
+    } else {
+      // If sign in fails, reset form
+      setReset({});
+    }
   };
 
   return (
@@ -46,7 +56,7 @@ export default function SignInForm() {
               placeholder="Enter your email"
               className="[&>label>span]:font-medium"
               inputClassName="text-sm"
-              {...register('email')}
+              {...register("email")}
               error={errors.email?.message}
             />
             <Password
@@ -55,12 +65,12 @@ export default function SignInForm() {
               size="lg"
               className="[&>label>span]:font-medium"
               inputClassName="text-sm"
-              {...register('password')}
+              {...register("password")}
               error={errors.password?.message}
             />
             <div className="flex items-center justify-between pb-2">
               <Checkbox
-                {...register('rememberMe')}
+                {...register("rememberMe")}
                 label="Remember Me"
                 className="[&>label>span]:font-medium"
               />
@@ -72,14 +82,14 @@ export default function SignInForm() {
               </Link>
             </div>
             <Button className="w-full" type="submit" size="lg">
-              <span>Sign in</span>{' '}
+              <span>Sign in</span>{" "}
               <PiArrowRightBold className="ms-2 mt-0.5 h-5 w-5" />
             </Button>
           </div>
         )}
       </Form>
       <Text className="mt-6 text-center leading-loose text-gray-500 lg:mt-8 lg:text-start">
-        Don’t have an account?{' '}
+        Don’t have an account?{" "}
         <Link
           href={routes.signUp}
           className="font-semibold text-gray-700 transition-colors hover:text-blue"
