@@ -9,7 +9,7 @@ export const metadata = {
 export default function SignUpPage() {
   return (
     <AuthWrapperFour
-      title="Join us today! Get special benefits and stay up-to-date."
+      title="Sign Up your SD-WAN Account."
       isSocialLoginActive={true}
     >
       <SignUpForm />
